@@ -52,6 +52,7 @@ body {
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	background-color:#FFFEF8;
 }
 header {
 	display: flex;
@@ -86,13 +87,206 @@ h2{
 }
 nav ul {
 	display: flex;
+	gap:40px;
 	align-items: center;
 	list-style-type: none;
 
 }
 nav li {
-	padding: 0 10px;
 	font-size: 1.2em;
+	
+}
+nav img {
+	align-items: center;
+	width:24px;
+	height:24px;
+}
+/* modal style */
+.modal {
+	position: fixed;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+	background-color: #fff;
+	width:630px;
+	height:750px;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem 4rem 3rem 4rem;
+	border-radius: 10px;
+
+}
+/* modal gallery containing loaded work */
+.modal-gallery {
+	display:flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin:3rem;
+	align-items: center;
+	gap:0.5rem;
+	padding-bottom:3rem;
+	border-bottom:2px solid #B3B3B3;
+}
+.modal-gallery figure{
+	/* set positions relative for Delete buttons absolute positioning */
+	position: relative;
+	margin-bottom:2rem;
+}
+/* modal quit button */
+#modal-quit {
+	color:black;
+	font-size: 18px;
+	margin-left:6rem;
+}
+/* modal nav containing button (quit and back ) */
+.modallist-nav{
+	width:110%;
+	display:flex;
+	justify-content: flex-end;
+}
+/* modal button style */
+#modal-addbtn {
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+	padding:10px;
+	border:none;
+	cursor:pointer;
+}
+
+.modal-main h2 {
+	margin:1rem;
+}
+/* modal img */
+.modal-main figure img{
+	width:100px;
+	height:135px;
+}
+/* modal add img window */
+.modal-addwindow{
+	background-color: #fff;
+	width:630px;
+	height:750px;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem 4rem 3rem 4rem;
+	border-radius: 10px;
+	gap:2rem;
+}
+.modaltitle_style{
+	font-size: 26px;
+	color:black;
+	font-weight: 400;
+	font-family:'Work Sans';
+}
+/* set button quit/return pos */
+.modaladd-nav {
+	width:110%;
+	display:flex;
+	justify-content: space-between;
+	font-weight: 700;
+
+}
+.modaladd-nav i{
+	font-weight:700;
+	font-size: 18px;
+}
+/* modal add img window form */
+.modal-addwindow_form{
+	display:flex;
+	flex-direction: column;
+	width:100%;
+}
+/* div containing add img part of form */
+.modal-addwindow_addimg{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	background-color:#E8F1F6;
+	margin:2rem;
+	height: 200px;
+
+}
+/* set adding icons img size */
+.modal-addwindow_addimg i{
+	padding:1rem;
+	font-size:75px;
+	color:#B9C5CC;
+}
+.modal-addwindow_addimg p {
+	padding-bottom:2rem;
+	color:#444444;
+	font-size:12px;
+	font-weight: 400;
+}
+/* set catogery <select> style like input style */
+#category {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	background-color: #fff;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+
+}
+/* set button to load file */
+/* set button to relative for children input to be over it  */
+.modal-addimg_button{
+	position:relative;
+	margin-bottom:1rem;
+}
+/* hide <input> with opacity 0 and set it on position absolute to hes parent which is relative */
+.modal-addimg_button input{
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	opacity: 0;
+}
+
+.modal-addwindow_textform{
+	margin:0 2rem 0 2rem;
+	display:flex;
+	flex-direction: column;
+	padding-bottom:3.5rem;
+	border-bottom:1px solid #B3B3B3;
+}
+/* set modal delete btn */
+.modal-deletebtn {
+	margin:0.4rem;
+	position:absolute;
+	top:0;
+	right:0;
+	background-color: black;
+	border:none;
+	border-radius: 4px;
+}
+.modal-deletebtn i{
+	color:white;
+}
+
+/* add of a no-style class to make btn style correspond to <li> *optional*(can directly set it up in it) */
+.nostyle-btn {
+    background: none;
+    border: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+
 }
 
 li:hover {
@@ -101,6 +295,7 @@ li:hover {
 #introduction {
 	display: flex;
 	align-items: center;
+	margin-top:8rem;
 }
 #introduction figure {
 	flex: 1
@@ -121,24 +316,54 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
-#portfolio h2 {
-	text-align: center;
-	margin-bottom: 1em;
+/* position of the mod in Myproject */
+/* only display when logged in */
+#portfolio span {
+	position:absolute;
+	left:57.5%;
+	top:75.5%;
+
 }
+/* buttons opening modals */
+#showmodal{
+	display:flex;
+	gap:6px;
+	align-items: baseline;
+	
+}
+/* change icon size */
+#portfolio i{
+	font-size: 18px;
+}
+
+
+#portfolio h2 {
+	display:flex;
+	justify-content:center ;
+	align-items: center;
+	text-align: center;
+
+}
+
 /* set portfolio into flex for gap to space filter correctly other solution is margin-bottom on filter*/
 #portfolio {
+	margin-top:8rem;
 	display:flex;
 	flex-direction: column;
-	gap:30px;
+	gap:60px;
 }
+
 /* portfolio filter */
-#portfolio .Filter{
+#portfolio .filter{
+	margin-top:2rem;
 	display:flex;
-	
 	justify-content:center;
-	gap:30px;
+	gap:15px;
+
 }
-.Filter button{
+/* filter button style */
+.filter button{
+	font-family: 'Syne';
 	background:none;
 	border-radius: 60px;
 	border:#1D6154 solid 1px;
@@ -147,8 +372,31 @@ li:hover {
 	padding:10px;
 	text-align: center;
 	min-width:100px;
-	font-weight: 600;
+	font-weight: 700;
+	cursor:pointer;
 }
+/* filter hover effect */
+.filter button:hover{
+	color: white;
+	background-color: #1D6154;
+}
+
+/* logged in header style */
+/* display only if logged in */
+.logged-in-header{
+	position:absolute;
+	display:flex;
+	justify-content: center;
+	gap:0.3rem;
+	background-color: black;
+	color:white;
+	box-sizing: border-box; /* ensure padding is included in width to avoid width problem */
+	top:0;
+	left:0;
+	width:100%;
+	padding:1rem;
+}
+
 
 .gallery {
 	width: 100%;
@@ -160,11 +408,14 @@ li:hover {
 
 .gallery img {
 	width: 100%;
+	/* set up height to fix newly added work img size*/
+	height:95%;
+	padding-bottom: 0.4rem;
 
 }
 #contact {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
 #contact > * {
 	text-align: center;
@@ -179,15 +430,18 @@ margin: auto;
 	display: flex;
 	flex-direction: column;
 }
-
-#contact input {
+/* modification of css class turn it into a specific class */
+/* ancient one was #contact input */
+/* add this class to add style for desired input */
+.forminputstyle {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label {
-	margin: 2em 0 1em 0;
+
+.labelstyle {
+	margin: 1em 0 0.6rem 0;
 }
 #contact textarea {
 	border: none;
@@ -203,11 +457,98 @@ input[type="submit"]{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+	padding:10px;
+	border:none;
+	cursor:pointer;
 }
 
+
+
+
+
+/* login window */
+.connectwindow {
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-bottom:12rem;
+	margin-top:10rem;
+}
+/* <form> of the login section */
+.loginform {
+	text-align: left;
+	margin-top:1rem;
+	display: flex;
+	flex-direction: column;
+	width:30%;
+
+}
+.loginmessage{
+	position: absolute;
+    display:flex;
+	left:41.5%;
+	top:70%;
+}
+footer{
+	position:absolute;
+	background-color: white;
+	width:100%;
+	left:0;
+}
+footer nav {
+	width:90%;
+}
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2rem;
+	
 }
 
+.uploaded-image {
+	max-width: 134px;
+	max-height: 200px;
+    margin-bottom: 10px; /* Example margin */
+}
+/* style of input/button addimg*/
+.modal-addimg_button{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: #306685;
+	background-color: #CBD6DC;
+	width: 180px;
+	display:flex;
+	align-items: center;
+	text-align: center;
+	border-radius: 60px ;
+	padding:0.8rem 1.2rem 0.8rem 1.2rem;
+	border:none;
+	cursor:pointer;
+}
+/* set style of "validation" submit input */
+#addimgrequest{
+	margin: 4em auto;
+}
+
+.modal-addimg_button label{
+	width:100%;
+	font-size: 14px;
+	font-weight: 500;
+	font-family: 'Work Sans';
+	
+	
+}
+.modal-addimg_button input {
+	cursor:pointer;
+}
+
+/* set both modal button style  */
+#modal-addbtn{
+	width:280px;
+	font-size:14px;
+}
+#addimgrequest{
+	width:280px;
+	font-size:14px;
+}

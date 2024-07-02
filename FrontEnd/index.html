@@ -7,23 +7,29 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<!-- added script to load fontawesome icons-->
+	<script src="https://kit.fontawesome.com/2f9c58cc89.js" crossorigin="anonymous"></script>
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
-	<script type="module" src="works.js" defer></script>
+	<script type="module" src="/assets/js/Works.js" ></script>
+	<script type="module" src="/assets/js/index.js" ></script>
+	<script type="module" src="/assets/js/Delete.js"></script>
+	<script type="module" src="/assets/js/addworks.js"></script>
 </head>
 <body>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
-		<ul>
-			<li>projets</li>
-			<li>contact</li>
-			<li>login</li>
+		<ul><!-- added Button for login and project -->
+			<li><button class="navbtn nostyle-btn" id="projectbtn">projets</button></li>
+			<li><button class="navbtn nostyle-btn" id="contactbtn">contact</button></li>
+			<li><button class="navbtn nostyle-btn" id="loginbtn">login</button></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
 </header>
 <main>
+	<!-- edit mod will be added above the first element of main see index.js-->
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="">
@@ -38,7 +44,7 @@
 	<section id="portfolio">
 		<h2>Mes Projets</h2>
 		<!-- Filter HTML part -->
-		<div class="Filter">
+		<div class="filter">
 			<button class="filter-button" id="Tous-filter">Tous</button>
 			<button class="filter-button" id="Objets-filter">Objets</button>
 			<button class="filter-button" id="Appartements-filter">Appartements</button>
@@ -96,11 +102,11 @@
 		<h2>Contact</h2>
 		<p>Vous avez un projet ? Discutons-en !</p>
 		<form action="#" method="post">
-			<label for="name">Nom</label>
-			<input type="text" name="name" id="name">
-			<label for="email">Email</label>
-			<input type="email" name="email" id="email">
-			<label for="message">Message</label>
+			<label class ="labelstyle" for="name">Nom</label>
+			<input class ="forminputstyle" type="text" name="name" id="name">
+			<label class ="labelstyle" for="email">Email</label>
+			<input class ="forminputstyle" type="email" name="email" id="email">
+			<label class ="labelstyle" for="message">Message</label>
 			<textarea name="message" id="message" cols="30" rows="10"></textarea>
 			<input type="submit" value="Envoyer">
 		</form>
@@ -114,5 +120,56 @@
 		</ul>
 	</nav>
 </footer>
+
+<!-- modal window -->
+<aside id ="modal1" class="modal" aria-hidden="true" style="display:none" >
+
+	<!--firt modal window where you can delete works or add new works-->
+	<div id ="modallist" class="modal-main" style="display:none">
+		<div class="modallist-nav">
+			<button class="modal-btn nostyle-btn" id="modal-quit"><i class="fa-solid fa-xmark"></i></button>
+		</div>
+		<p class="modaltitle_style">Galerie Photo</p>
+		<div class="modal-gallery">
+
+		</div>
+		<button  id="modal-addbtn">Ajouter une photo</button>
+	</div>
+
+	<!-- second modal window to add new works-->
+	<div id ="modaladd" class="modal-addwindow" style="display:none">
+		<div class="modaladd-nav">
+		<button class="modal-btn nostyle-btn" id="modal-return"><i class="fa-solid fa-arrow-left"></i></button>
+		<button class="modal-btn nostyle-btn" id="modaladd-quit"><i class="fa-solid fa-xmark"></i></button>
+		</div>
+		<p class="modaltitle_style">Ajout Photo</p>
+
+		<!-- form to add new works -->
+		<form  enctype="multipart/form-data" class="modal-addwindow_form" id="modal_postreq" method="post" name="addworks">
+			<div class="modal-addwindow_addimg">
+				<i class="fa-regular fa-image"></i>
+				<div id="output"></div>
+				<div class="modal-addimg_button">
+					<label for="image_uploads">+ Ajouter une photo</label>
+					<input name="image" type="file" id="image_uploads" accept=".jpg, .jpeg, .png" required>
+				</div>
+				<p>jpg, png : 4mo max</p>
+			</div>
+			<div class="modal-addwindow_textform">
+				<label class ="labelstyle" for="add_title">Titre</label>
+				<input class ="forminputstyle" type="text" name="title" id="add_title" required>
+				<label class ="labelstyle"  for="category">Catégorie</label>
+				<select name="category" id="category"  required>
+					<option value="" disabled selected hidden>-</option>
+					<option value="1">Appartements</option>
+					<option value="2">Objets</option>
+					<option value="3">Hotels & restaurants</option>
+				</select>
+			</div>
+			<input type="submit" value="Valider" id="addimgrequest">
+		</form>
+		
+</div>
+</aside>
 </body>
 </html>

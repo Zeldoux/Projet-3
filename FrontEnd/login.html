@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Sophie Bluel - Architecte d'intérieur</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<!-- added script to load fontawesome icons-->
+	<script src="https://kit.fontawesome.com/2f9c58cc89.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/login.js" defer ></script>
+	<meta name="description" content="">
+	<link rel="stylesheet" href="./assets/login.css">
+</head>
+<body>
+    <header>
+        <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+        <nav>
+            <ul><!-- added Button for login and project -->
+                <li><button class="navbtn nostyle-btn" id="projectbtn">projets</button></li>
+                <li><button class="navbtn nostyle-btn" id="contactbtn">contact</button></li>
+                <li><button class="navbtn nostyle-btn" id="loginbtn"><strong>login</strong></button></li>
+                <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+            </ul>
+        </nav>
+    </header>
+    	<!-- Log in window hidden by default-->
+	 <section id ="loginwindow" class="connectwindow">
+		<h2>Log In</h2>
+		<form class ="loginform" id="logform" action="#" method="get">
+			<label class ="labelstyle" for="logemail">Email</label>
+			<input class ="forminputstyle" type="email" name="email" id="logemail" required> <!-- not same id as for "contact"-->
+			<label class ="labelstyle" for="password">Mot de passe</label>
+			
+			<input class ="forminputstyle" type="password" name="password" id="password" required>
+			<input type="submit" value="Se connecter" id="loginrequest">
+            <!-- span for login error message -->
+            <span class="loginmessage"></span>
+			
+			
+		</form>
+        <!-- span for forgot password link -->
+        <span><a href="#">Mot de passe oublié</a></span>
+
+
+	 </section>
+</body>
+
+<footer>
+    <nav>
+        <ul>
+            <li>Mentions Légales</li>
+        </ul>
+    </nav>
+</footer>
+</html>
