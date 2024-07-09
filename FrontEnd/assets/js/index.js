@@ -336,44 +336,43 @@ function handleInputChange(){
      /* File type validation */
      const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
      if (file && !allowedTypes.includes(file.type)) {
-         // If file type is not allowed, display error message
-         console.log("file type not allowed");
-         return;
+        showError("Format de fichier incorrect ( jpeg,png,jpg uniquement ).");        
     }
 
     /* check if size of file is over the limit or not */
-    if (file && file.size <= maxSize ){
+    if (file && file.size <= maxSize){
         /* if its not handle normal process*/
         console.log("file size correct");
         /* display  uploaded files */
         previewFile();
            
 
-    } else if (file && file.size > maxSize ){
-        /* if its over the size limit display error msg */
-        /* get previous error msg */
-        const previouserror = document.querySelector(".error_alert");
-        /* if there is error msg  */
-        if (previouserror) {
-            /* remove previous error */
-            previouserror.remove();
-        }
-        console.log("file size over the limit");
-        /* create error msg to be displayed */
-        const errorMessage = document.createElement("span");
-        /* add class list error_alert to the error msg */
-        errorMessage.classList.add("error_alert")
-        errorMessage.style.color = "red";
+    } else if (file && file.size > maxSize){
         /* error msg text */
-        errorMessage.innerText = "Fichier de taille incorrect , ne doit pas dépasser 4MB .";
-        /* append the error msg to the container of modal text */
-        const alertContainer = document.querySelector(".modal-addwindow_addimg");
-        alertContainer.appendChild(errorMessage);
-        /* set file input empty */
-        fileinput.value = ""
-        
-
+        showError("Fichier de taille incorrect , ne doit pas dépasser 4MB.")
     }
+}
+function showError(message){
+    const fileinput = document.getElementById("image_uploads");
+    const previouserror = document.querySelector(".error_alert");
+
+    if (previouserror) {
+        /* remove previous error */
+        previouserror.remove();
+    }
+    // If file type is not allowed, display error message
+    console.log("file type or size not allowed");
+    /* create error msg to be displayed */
+    const errorMessage = document.createElement("span");
+    /* add class list error_alert to the error msg */
+    errorMessage.classList.add("error_alert")
+    errorMessage.style.color = "red";
+    /* error msg text */
+    errorMessage.innerText = message;
+    /* append the error msg to the container of modal text */
+    const alertContainer = document.querySelector(".modal-addwindow_addimg");
+    alertContainer.appendChild(errorMessage);
+    fileinput.value = ""
 }
 
 function quitModal(){
