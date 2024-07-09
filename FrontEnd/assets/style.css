@@ -408,7 +408,7 @@ li:hover {
 .gallery img {
 	width: 100%;
 	/* set up height to fix newly added work img size*/
-	height:95%;
+	height:490px;
 	padding-bottom: 0.4rem;
 
 }
