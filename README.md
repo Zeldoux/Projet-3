@@ -6,7 +6,6 @@ Code du projet 3 de developpeur web.
 
  - Lancer le backend depuis votre terminal en suivant les instruction du fichier ReadMe.
  - Si vous désirez afficher le code du backend et du frontend, faites le dans 2 instances de VSCode différentes pour éviter tout problème
-OpenClassrooms - Projet n°2 - Créez la page d'accueil d'une agence de voyage avec HTML & CSS
 
 Troisieme projet du parcours de développeur web avec OpenClassrooms.
 
