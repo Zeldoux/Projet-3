@@ -39,7 +39,7 @@ async function login(event) {
             window.location.href=("index.html");
         } else if (response.status === 404 || 401) {
             /* throw error for incorrect credentials */
-            throw new Error("Email ou mots de passe incorrect !");
+            throw new Error("Erreur dans l’identifiant ou le mot de passe");
 
         } else {
             /* throw error for possible other errors */

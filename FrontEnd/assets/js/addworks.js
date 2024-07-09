@@ -15,6 +15,9 @@ export function addWork(event,callback) {
         /* load  <input> value */
         const form = event.target;
         /* store it in a const */
+
+        /*  use new FormData() constructor to captures all value of the form fields (files included)
+         and format them as multipart/form-data */
         let formData = new FormData(form)
 
 
