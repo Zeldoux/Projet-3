@@ -193,10 +193,10 @@ input[type="submit"]{
 	font-weight: 600;
 }
 .loginmessage{
-	position: absolute;
+	
     display:flex;
-	left:44%;
-	top:60%;
+	justify-content: center;
+	align-items: center;
 }
 /* set footer in loggin window style */
 footer {

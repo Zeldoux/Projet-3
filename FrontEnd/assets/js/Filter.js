@@ -4,7 +4,7 @@ export async function filterOnlyObject(works) {
 
     /* using filter to only return category.name "Objets" */
     const objectFilter = works.filter(function (works) {
-        return works.category.name === "Objets";
+        return works.categoryId === 1;
     });
     console.log("Works after filtering:", objectFilter);
     return objectFilter;
@@ -16,7 +16,7 @@ export async function filterOnlyApart(works) {
 
     /* using filter to only return category.name "Appartements" */
     const objectFilter = works.filter(function (works) {
-        return works.category.name === "Appartements";
+        return works.categoryId === 2;
     });
 
     console.log("Works after filtering:", objectFilter);
@@ -29,7 +29,7 @@ export async function filterOnlyHotel(works) {
 
     /* using filter to only return category.name "Hotels & restaurants" */
     const objectFilter = works.filter(function (works) {
-        return works.category.name === "Hotels & restaurants";
+        return works.categoryId === 3;
     });
     console.log("Works after filtering:", objectFilter);
     return objectFilter;

@@ -1,5 +1,5 @@
 import {addWork} from "./addworks.js"; // import of function Delete from delete.js
-import {fetchAndDisplayWorks} from "./Works.js"; // import of function Delete from delete.js
+import {fetchAndDisplayWorks} from "./works.js"; // import of function Delete from delete.js
 
 /************* CONSTANT FOR SELECTOR ****************/
 
@@ -284,7 +284,6 @@ loginButton.addEventListener("click" , function() {
 
 /* function to submit work */
 async function handleSubmit(event){
-    event.preventDefault();
     /* Calls the addWork function, passing an async callback function as an argument */
     addWork(event, async () => { // Inside the callback function
         /* set callback function of addwork */
@@ -333,6 +332,15 @@ function handleInputChange(){
     if (uploadedimg){
         return;
     }
+
+     /* File type validation */
+     const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+     if (file && !allowedTypes.includes(file.type)) {
+         // If file type is not allowed, display error message
+         console.log("file type not allowed");
+         return;
+    }
+
     /* check if size of file is over the limit or not */
     if (file && file.size <= maxSize ){
         /* if its not handle normal process*/
@@ -341,7 +349,7 @@ function handleInputChange(){
         previewFile();
            
 
-    } else {
+    } else if (file && file.size > maxSize ){
         /* if its over the size limit display error msg */
         /* get previous error msg */
         const previouserror = document.querySelector(".error_alert");

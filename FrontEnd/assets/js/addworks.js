@@ -22,12 +22,12 @@ export function addWork(event,callback) {
 
 
         const request = new XMLHttpRequest();
-
+        /* initialize the request , set it up */
         request.open("POST",`${apiUrl}`, true);
         /* set auth token in header */
         request.setRequestHeader('Authorization', `Bearer ${token}`);
         
-        /* send request POST formData */
+        /* define the onload  handlers when request sucessfull*/
         request.onload = function() {
             if (request.status === 201 ) {
                 console.log('Form data after successful submission:', formData);
@@ -35,16 +35,17 @@ export function addWork(event,callback) {
                 const result =JSON.parse(request.responseText);
                 console.log("response:",result);
                 /* check if callback and start callback to execute refresh function(fetchanddisplay(work)) */
-                if (callback) callback(result);
+                if (callback) callback();
             } else {
                 console.error("something went wrong : ", request.responseText);
             }
         };
         
-    /* check if response is retrieved otherwise it give an error with the response.status */
+        /* define the onerror handlers when request is resulting in error */
         request.onerror = function(){
             console.error("request failed");
         }
+        /* send the request with formData */
         request.send(formData)
     /* if try {} throw an exception the code in catch block is executed */
     } catch (error) {

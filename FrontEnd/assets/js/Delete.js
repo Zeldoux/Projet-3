@@ -25,7 +25,8 @@ export async function deleteWork(event) {
     try {
         let actualtoken = window.localStorage.getItem("token");
         console.log(actualtoken);
-        const response = await fetch(`${apiUrl}/${workId}`, {
+        /* fetch `${apiUrl}/${workId}` is same as  = const url = apiUrl + "/" + workId; */
+        const response = await fetch(`${apiUrl}/${workId}`, { // concatenate apiUrl with workId as the DELETE method ask for it 
             method: "DELETE",
             headers: { 
                 "Content-Type": "application/json",

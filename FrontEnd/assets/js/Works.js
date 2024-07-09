@@ -1,7 +1,7 @@
-import { deleteWork } from "./Delete.js";
-import {filterOnlyObject} from "./Filter.js";
-import {filterOnlyApart} from "./Filter.js";
-import {filterOnlyHotel} from "./Filter.js";
+import { deleteWork } from "./delete.js";
+import {filterOnlyObject} from "./filter.js";
+import {filterOnlyApart} from "./filter.js";
+import {filterOnlyHotel} from "./filter.js";
  /* import Filter.js to retrieve all filter function */
 
 /* API URL */
